@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RobotService } from '../common/robot.service';
 
 @Component({
   selector: 'app-game',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor(public robot: RobotService) { }
 
   ngOnInit(): void {
   }
 
+  afficherQuestion(){
+    this.robot.afficherQuestion();
+  }
+
+
+  afficherScoreFinal(){  
+    this.robot.afficherScoreFinal();
+  }
+
+  afficherScorePerd(){
+    this.robot.afficherScorePerd();
+  }
 }
