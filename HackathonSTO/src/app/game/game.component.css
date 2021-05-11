@@ -1,0 +1,7 @@
+.gameBG {
+  background-image: url("/assets/img/marsi.jpeg");
+  background-size: cover;
+  height: 630px;
+  margin: 0;
+  padding: 0;
+}
