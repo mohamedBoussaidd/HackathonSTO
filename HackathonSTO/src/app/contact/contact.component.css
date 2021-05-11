@@ -1,0 +1,105 @@
+#contact {
+    background-image: url(../../assets/img/MarsContact.jpg);
+    width: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    min-height: 100%;
+  }
+  
+  .container {
+    padding: 0;
+    text-align: center;
+    font-size: 30px;
+    color: beige;
+  }
+  
+  h2 {
+    font-size: 35px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-family: "Russo One", sans-serif;
+  }
+  
+  /*--------------------Qui sommes nous------------------*/
+  .quiSommesNous {
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+
+  .texteQSN {
+      width: 45%;
+  }
+
+ iframe {
+     width: 100%;
+     height: 95%;
+     margin-bottom: 10px;
+     margin-top: 10px;
+  }
+  
+  p {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /*--------------------Formulaire------------------*/
+  
+  .formAlign {
+    display: flex;
+    justify-content: center;
+}
+  
+  .form-item {
+    margin: 20px;
+  }
+  
+  label {
+    display: block;
+    text-align: center;
+  }
+  
+  form {
+      align-items: center;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  textarea {
+    width: 50%;
+    height: 100px;
+  }
+  
+  /*--------------------Bouton-----------------*/
+  button {
+    border: transparent;
+    font-size: 25px;
+    padding: 10px;
+    background: transparent;
+    color: beige;
+  }
+  
+  a {
+    color: beige;
+    font-weight: 700;
+  }
+  
+  button:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
+  
+  .return {
+    width: 50px;
+  }
+  
+  button:focus {
+    outline: 0;
+  }
+  

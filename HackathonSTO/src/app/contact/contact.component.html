@@ -1,1 +1,88 @@
-<p>contact works!</p>
+<div id="contact">
+    <div class="container">
+        <!---------------------------Qui Sommes Nous? ----------------->
+        <div class="quiSommesNous col-md-12 row">
+            <div class="texteQSN col-md-6">
+                <h2>Qui sommes nous?</h2>
+                <div>
+                    <p>Retour vers Mars est un projet mené par 5
+                        étudiant-es de la Wild Code School dans le cadre du Hackathon. Après 2 mois de
+                        formation au développement
+                        web, nous avons utilisé nos connaissances en HTML, CSS, JS et Angular pour construire un jeu
+                        ludique et
+                        instructif, autour d'une thématique : Mars !
+                    <p>Même s'il n'est pas parfait, nous sommes fiers du résultat. Ca a été un beau défi pour nous
+                        et nous espérons
+                        que Ingenuity et Perseverance ne se sentent plus seul !</p>
+                </div>
+            </div>
+
+            <div class="iframey col-md-6" >
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3470.567086572622!2d-95.09152238548324!3d29.558099182061852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86409da671292593%3A0xf684f098a7237a30!2sNASA%20Mission%20Control%20Center!5e0!3m2!1sfr!2sfr!4v1620723188226!5m2!1sfr!2sfr"
+                    style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!--------------------------- Formulaire ----------------->
+
+
+
+        <form (ngSubmit)="form.valid && onSubmit()" #myForm="ngForm" #form="ngForm">
+            <div class="formAlign">
+                <div class="form-item">
+                    <label for="lastname-user">Nom</label>
+                    <input class="col-md-12 col-sm-12 col-12" type="text" name="lastname" [(ngModel)]="user.lastname"
+                        required minlength="3" maxlength="15" #lastname="ngModel" size="11" />
+                    <div *ngIf="form.submitted && lastname.errors">
+                        <span *ngIf="lastname.errors?.required">*Le nom est requis</span>
+                        <span *ngIf="lastname.errors?.minlength">*Le nom doit avoir au
+                            moins 3 caractères</span>
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <label for="firstname-user">Prénom</label>
+                    <input class="col-md-12 col-sm-12 col-12" type="text" name="firstname" [(ngModel)]="user.firstname"
+                        required minlength="3" maxlength="15" #firstname="ngModel" size="11" />
+                    <div *ngIf="form.submitted && firstname.errors">
+                        <span *ngIf="firstname.errors?.required">*Le prénom est requis</span>
+                        <span *ngIf="firstname.errors?.minlength">*Le prénom doit avoir au moins 3 caractères</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <label for="mail-user">@E-Mail</label>
+                <input class="col-md-6 col-sm-12 col-12" type="mail" name="mail" [(ngModel)]="user.mail" required email
+                    #mail="ngModel" size="40" />
+                <div *ngIf="form.submitted && mail.errors">
+                    <span *ngIf="mail.errors?.required">*Le mail est requis</span>
+                    <span *ngIf="mail.errors?.email">*Le mail doit être au format ****@***</span>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <label for="message-user">Message</label>
+                <textarea class="col-md-6 col-sm-12" type="textarea" name="message-user" [(ngModel)]="user.message"
+                    required #message="ngModel"></textarea>
+                <div *ngIf="form.submitted && message.errors">
+                    <span *ngIf="message.errors?.required">*Merci de remplir votre message</span>
+                </div><br>
+
+                <button type="submit">Envoyer</button>
+
+                <div *ngIf="form.submitted && form.invalid">
+                    <span>*Le formulaire n'est pas rempli correctement</span>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+</div>
