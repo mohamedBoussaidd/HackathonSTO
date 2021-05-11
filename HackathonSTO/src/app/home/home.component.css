@@ -1,8 +1,22 @@
-#img-robot {
-    position: absolute;
+.BGhome {
+  background-color: red;
+  height: 650px;
 }
 
-#div-img {
-    height: 600px;
-    width: 100%;
+.cadreStart {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.7;
+}
+
+.logo {
+  width: 100px;
+  margin: 0 auto;
 }
