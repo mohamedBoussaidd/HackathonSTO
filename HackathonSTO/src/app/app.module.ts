@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { GameComponent } from './game/game.component';
 import { FlagComponent } from './flag/flag.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FlagComponent } from './flag/flag.component';
     NotFoundComponent,
     ContactComponent,
     GameComponent,
-    FlagComponent
+    FlagComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
