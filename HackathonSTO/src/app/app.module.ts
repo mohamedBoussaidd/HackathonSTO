@@ -8,6 +8,8 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
+import { GameComponent } from './game/game.component';
+import { FlagComponent } from './flag/flag.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     NavComponent,
     FooterComponent,
     NotFoundComponent,
-    ContactComponent
+    ContactComponent,
+    GameComponent,
+    FlagComponent
   ],
   imports: [
     BrowserModule,

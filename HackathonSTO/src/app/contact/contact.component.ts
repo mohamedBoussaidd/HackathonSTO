@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import Swal from "sweetalert2";
 import { User } from "../model/user.model";
 
 @Component({
@@ -23,6 +24,11 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    window.alert("Votre message a bien été envoyé!");
+    Swal.fire({
+      title:'Votre message a bien été envoyé!',
+      icon: "success",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "OK",
+    })
   }
 }
