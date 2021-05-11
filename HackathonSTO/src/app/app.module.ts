@@ -7,6 +7,7 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { GameComponent } from './game/game.component';
 import { FlagComponent } from './flag/flag.component';
@@ -18,6 +19,7 @@ import { FlagComponent } from './flag/flag.component';
     FooterComponent,
     NotFoundComponent,
     ContactComponent,
+    HomeComponent,
     GameComponent,
     FlagComponent
   ],

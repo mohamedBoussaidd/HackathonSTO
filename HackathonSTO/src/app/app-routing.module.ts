@@ -1,3 +1,4 @@
+import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,8 @@ export const routes: Routes = [
   { path: 'nav', component: NavComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'game', component: GameComponent },
+  { path: 'game', component: GameComponent},
+  { path: 'home', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

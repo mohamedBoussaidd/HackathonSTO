@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlagComponent implements OnInit {
 
-  constructor() { }
+  public urlFlag = ""
+  constructor() { 
+return
+  }
 
   ngOnInit(): void {
   }

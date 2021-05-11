@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RobotService } from '../common/robot.service';
+import { RobotService } from '../commons/robot.service';
 
 @Component({
   selector: 'app-game',
