@@ -16,7 +16,11 @@ export class GameComponent implements OnInit {
   public divImg: any;
   public key: any;
   public tableauPosition: any[] = [];
-
+  public bool0:boolean = false;
+  public bool1:boolean = false;
+  public bool2:boolean = false;
+  public bool3:boolean = false;
+  public bool4:boolean = false;
 
   constructor(public robot: RobotService) {}
 
@@ -85,7 +89,10 @@ export class GameComponent implements OnInit {
       this.positionY >= this.tableauPosition[2] - 30 &&
       this.positionY <= this.tableauPosition[2]
     ) {
-      this.robot.afficherQuestion(0)
+      if(!this.bool0){
+        this.robot.afficherQuestion(0);
+        this.bool0 =true;
+        }
       
     } else if (
       this.positionX >= this.tableauPosition[4] - 25 &&
@@ -93,24 +100,30 @@ export class GameComponent implements OnInit {
       this.positionY >= this.tableauPosition[5] - 30 &&
       this.positionY <= this.tableauPosition[5]
     ) {
-      this.robot.afficherQuestion(1);
-    
+      if(!this.bool1){
+        this.robot.afficherQuestion(1);
+        this.bool1 =true;
+        }
     } else if (
       this.positionX >= this.tableauPosition[7] - 25 &&
       this.positionX <= this.tableauPosition[7] + 5 &&
       this.positionY >= this.tableauPosition[8] - 30 &&
       this.positionY <= this.tableauPosition[8]
     ) {
-      this.robot.afficherQuestion(2);
-
+      if(!this.bool2){
+        this.robot.afficherQuestion(2);
+        this.bool2 =true;
+        }
     } else if (
       this.positionX >= this.tableauPosition[10] - 25 &&
       this.positionX <= this.tableauPosition[10] + 5 &&
       this.positionY >= this.tableauPosition[11] - 30 &&
       this.positionY <= this.tableauPosition[11]
     ) {
-      this.robot.afficherQuestion(3);
-    
+      if(!this.bool3){
+        this.robot.afficherQuestion(3);
+        this.bool3 =true;
+        }
 
     } else if (
       this.positionX >= this.tableauPosition[13] - 25 &&
@@ -118,8 +131,10 @@ export class GameComponent implements OnInit {
       this.positionY >= this.tableauPosition[14] - 30 &&
       this.positionY <= this.tableauPosition[14]
     ) {
+      if(!this.bool4){
       this.robot.afficherQuestion(4);
-      
+      this.bool4 =true;
+      }
     }
   }
 
