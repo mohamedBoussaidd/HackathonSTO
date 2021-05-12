@@ -1,0 +1,14 @@
+#bots{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    position: absolute;
+   
+}
+.marker{
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    position: absolute;
+   display: none;
+}
