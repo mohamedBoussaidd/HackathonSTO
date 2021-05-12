@@ -1,7 +1,7 @@
 .BGhome {
-  background-image: url(../../assets/img/marsi.jpeg);
+  background-image: url(../../assets/img/homeFond.png);
   background-size: cover;
-  height: 650px;
+  height: 690px;
   color: white;
 }
 
@@ -61,5 +61,5 @@
 }
 
 .autresliens {
-  margin-top: 5%;
+  margin-top: 7%;
 }
