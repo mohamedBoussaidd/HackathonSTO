@@ -8,24 +8,19 @@ export class ContentCkeckpointmeet implements OnInit{
     public questionReponses :any = [];
 
     constructor(){
-
-        
-    }
-    ngOnInit(): void {
-
         this.questionReponses.push(
             {
                 numero:1,
                 question : "Mars est plus proche du Soleil que la Terre",
                 reponses : ["vrai", "Faux"],
-                idValide : 1
+                idValide : "1"
 
             },
             {
                 numero:2,
                 question : "La planète Mars est plus grosse que la Terre",
                 reponses : ["vrai", "Faux"],
-                idValide : 1
+                idValide : "1"
 
             },
 
@@ -33,7 +28,7 @@ export class ContentCkeckpointmeet implements OnInit{
                 numero:3,
                 question : "Quelle est la température moyenne à la surface de Mars ?",
                 reponses : ["-63°C", "-13°C", "-3°C"],
-                idValide : 0
+                idValide : "0"
 
             },
 
@@ -41,16 +36,30 @@ export class ContentCkeckpointmeet implements OnInit{
                 numero:4,
                 question : "Une année sur Mars dure",
                 reponses : ["365 jours", "687 jours", "932 jours"],
-                idValide : 1
+                idValide : "1"
 
             },
             {
                 numero:5,
                 question : "L'atmosphère de Mars est constituée principalement de quoi ?",
                 reponses : ["azote", "oxygène", "de dioxyde de carbone"],
-                idValide : 2
+                idValide : "2"
 
             },
             
-            )    }
+            )
+        
+    }
+    ngOnInit(): void {
+
+            }
+
+    getQuestion() :any []{
+        // si -1, je genere un chiffre entre 0 et la taille -1 du tableau 
+        // je renvoi la question correspondante
+        console.log(this.questionReponses)
+        return this.questionReponses
+        // si on me donne un chiffre, je renvoi la question qui a ce numéro.
+
+    }
 }

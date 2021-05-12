@@ -13,8 +13,8 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  afficherQuestion(){
-    this.robot.afficherQuestion();
+  afficherQuestion(number:number){
+    this.robot.afficherQuestion(number);
   }
 
 
@@ -24,5 +24,9 @@ export class GameComponent implements OnInit {
 
   afficherScorePerd(){
     this.robot.afficherScorePerd();
+  }
+
+  afficheTest(){
+    this.robot.afficheTest();
   }
 }
