@@ -19,7 +19,9 @@
   margin: 0;
   padding: 0;
   width: 100vw;
+  z-index: 1;
 }
 #img-robot {
   position: absolute;
+  z-index: 9;
 }

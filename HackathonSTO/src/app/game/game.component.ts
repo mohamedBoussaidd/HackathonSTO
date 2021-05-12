@@ -15,13 +15,13 @@ export class GameComponent implements OnInit {
   public positionY: any;
   public divImg: any;
   public key: any;
+  public tableauPosition: any [] = []
   constructor(public robot: RobotService) {}
 
   ngOnInit(): void {
     this.divImg = document.getElementById('div-img');
     this.imgRobot = document.getElementById('img-robot');
     this.positionX = this.imgRobot.getBoundingClientRect().x;
-    console.log((this.positionX = this.imgRobot.getBoundingClientRect().x));
     this.positionY = this.imgRobot.getBoundingClientRect().y;
 
     this.ChangeDirectory = document.getElementById('bots');
@@ -29,20 +29,17 @@ export class GameComponent implements OnInit {
     for (let i = 1; i <= this.numberOfDiv; i++) {
       let element = this.ChangeDirectory.cloneNode(true);
       element.id = 'bot' + i;
-      element.style.left = this.getRandomNumber(0, this.divImg.offsetWidth - 30 ) + 'px';
-      console.log(this.ChangeDirectory.offsetWidth *2)
-      element.style.top = this.getRandomNumber(0, this.divImg.offsetHeight - 30) + 'px';
+      element.style.left =
+        this.getRandomNumber(0, this.divImg.offsetWidth - 30) + 'px';
+      element.style.top =
+        this.getRandomNumber(0, this.divImg.offsetHeight - 30) + 'px';
       element.style.display = 'block';
       document.body.appendChild(element);
+      this.tableauPosition.push( element.id, element.getBoundingClientRect().x,  element.getBoundingClientRect().y)
     }
+    
   }
 
-  public deplacerRobotBas() {
-    // La ligne qui était dans le CSS.
-    this.imgRobot.style.marginTop = '100px';
-    this.imgRobot.style.width = '100px';
-    this.imgRobot.style.height = '100px';
-  }
   @HostListener('document:keyup', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     this.key = event.key;
@@ -75,8 +72,17 @@ export class GameComponent implements OnInit {
       const augmenter = 20;
       this.positionY = this.positionY - augmenter;
       this.imgRobot.style.top = this.positionY + 'px';
-    } else {
-      console.log(this.key);
+    }
+    console.log(this.tableauPosition[2])
+    console.log(this.tableauPosition[1])
+
+    console.log(this.positionX)
+    console.log(this.positionY)
+
+    
+    if(this.positionX >= (this.tableauPosition[1] -25) && this.positionX <= (this.tableauPosition[1]+5) 
+    && this.positionY >= (this.tableauPosition[2] -30) && this.positionY <= (this.tableauPosition[2] )){
+    this.robot.afficherQuestion(0);
     }
   }
 
