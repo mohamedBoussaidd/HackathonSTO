@@ -5,16 +5,17 @@ import { RobotService } from '../commons/robot.service';
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  styleUrls: ['./game.component.css'],
 })
 export class GameComponent implements OnInit {
-
+  public numberOfDiv: number = 5;
+  public ChangeDirectory: any;
   public imgRobot: any;
   public positionX: any;
   public positionY: any;
   public divImg: any;
   public key: any;
-  constructor(public robot: RobotService) { }
+  constructor(public robot: RobotService) {}
 
   ngOnInit(): void {
     this.divImg = document.getElementById('div-img');
@@ -22,9 +23,20 @@ export class GameComponent implements OnInit {
     this.positionX = this.imgRobot.getBoundingClientRect().x;
     console.log((this.positionX = this.imgRobot.getBoundingClientRect().x));
     this.positionY = this.imgRobot.getBoundingClientRect().y;
+
+    this.ChangeDirectory = document.getElementById('bots');
+    //reset tableau service
+    for (let i = 1; i <= this.numberOfDiv; i++) {
+      let element = this.ChangeDirectory.cloneNode(true);
+      element.id = 'bot' + i;
+      element.style.left = this.getRandomNumber(0, this.divImg.offsetWidth - 30 ) + 'px';
+      console.log(this.ChangeDirectory.offsetWidth *2)
+      element.style.top = this.getRandomNumber(0, this.divImg.offsetHeight - 30) + 'px';
+      element.style.display = 'block';
+      document.body.appendChild(element);
+    }
   }
 
-  
   public deplacerRobotBas() {
     // La ligne qui était dans le CSS.
     this.imgRobot.style.marginTop = '100px';
@@ -44,13 +56,16 @@ export class GameComponent implements OnInit {
       this.imgRobot.style.left = this.positionX + 'px';
     }
     // POUR LE DEPLACEMENT VERS LA GAUCHE
-     else if (this.key == 'ArrowLeft' && this.positionX  > 0) {
+    else if (this.key == 'ArrowLeft' && this.positionX > 0) {
       const augmenter = 20;
       this.positionX = this.positionX - augmenter;
       this.imgRobot.style.left = this.positionX + 'px';
-    } 
+    }
     // POUR LE DEPLACEMENT VERS LA BAS
-    else if (this.key == 'ArrowDown' && this.positionY + this.imgRobot.height <= this.divImg.offsetHeight) {
+    else if (
+      this.key == 'ArrowDown' &&
+      this.positionY + this.imgRobot.height <= this.divImg.offsetHeight
+    ) {
       const augmenter = 20;
       this.positionY = this.positionY + augmenter;
       this.imgRobot.style.top = this.positionY + 'px';
@@ -65,18 +80,11 @@ export class GameComponent implements OnInit {
     }
   }
 
-  afficherQuestion(number:number){
+  afficherQuestion(number: number) {
     this.robot.afficherQuestion(number);
   }
 
-
-  afficherScoreFinal(){  
-    this.robot.afficherScoreFinal();
+  getRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
-  afficherScorePerd(){
-    this.robot.afficherScorePerd();
-  }
-
- 
 }
