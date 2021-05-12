@@ -11,6 +11,7 @@ export class RobotService implements OnInit{
   public robot: Robot = new Robot(3, 0);
   public questionResponse : any = [];
   public question : any = [];
+  public count :number = 0;
   constructor(public contentCheckpoint: ContentCkeckpointmeet) {
   }
   ngOnInit(): void {
@@ -35,20 +36,26 @@ export class RobotService implements OnInit{
     
     // je vais chercher la question 
      this.question = this.contentCheckpoint.getQuestion()
-    console.log(this.question)
+
     const { value: string } = await Swal.fire({
       title: this.question[number].question,
       input: 'select',
-      inputOptions: this.question[number].reponses,
+      inputOptions: this.question[number].selecte,
       inputPlaceholder: 'Ma super reponse ?',
       showCancelButton: false,
       inputValidator: (value) => {
         return new Promise((resolve) => {
-          if (value === this.question[number].idValide) {
+          if (value == this.question[number].idValide) {
             Swal.fire('Bravo ! Plus 5 points','','success');
             this.robot.score = this.robot.score + 5;
+            this.question = [];
           } else {
-            Swal.fire('Mauvaise réponse !','',"error");
+            Swal.fire(' Mauvaise réponse !',''  + this.question[number].reponses[0]);
+          }
+          this.count++;
+          console.log(this.count)
+          if(this.count == 5){
+            this.afficherScoreFinal()
           }
         });
       },

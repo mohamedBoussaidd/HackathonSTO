@@ -15,7 +15,9 @@ export class GameComponent implements OnInit {
   public positionY: any;
   public divImg: any;
   public key: any;
-  public tableauPosition: any [] = []
+  public tableauPosition: any[] = [];
+
+
   constructor(public robot: RobotService) {}
 
   ngOnInit(): void {
@@ -35,9 +37,12 @@ export class GameComponent implements OnInit {
         this.getRandomNumber(0, this.divImg.offsetHeight - 30) + 'px';
       element.style.display = 'block';
       document.body.appendChild(element);
-      this.tableauPosition.push( element.id, element.getBoundingClientRect().x,  element.getBoundingClientRect().y)
+      this.tableauPosition.push(
+        element.id,
+        element.getBoundingClientRect().x,
+        element.getBoundingClientRect().y
+      );
     }
-    
   }
 
   @HostListener('document:keyup', ['$event'])
@@ -73,16 +78,50 @@ export class GameComponent implements OnInit {
       this.positionY = this.positionY - augmenter;
       this.imgRobot.style.top = this.positionY + 'px';
     }
-    console.log(this.tableauPosition[2])
-    console.log(this.tableauPosition[1])
-
-    console.log(this.positionX)
-    console.log(this.positionY)
-
+let bool :boolean =false
+    if (
+      this.positionX >= this.tableauPosition[1] - 25 &&
+      this.positionX <= this.tableauPosition[1] + 5 &&
+      this.positionY >= this.tableauPosition[2] - 30 &&
+      this.positionY <= this.tableauPosition[2]
+    ) {
+      this.robot.afficherQuestion(0)
+      
+    } else if (
+      this.positionX >= this.tableauPosition[4] - 25 &&
+      this.positionX <= this.tableauPosition[4] + 5 &&
+      this.positionY >= this.tableauPosition[5] - 30 &&
+      this.positionY <= this.tableauPosition[5]
+    ) {
+      this.robot.afficherQuestion(1);
+      this.ChangeDirectory.style.backgroundColor ='red';
+      console.log(this.ChangeDirectory)
     
-    if(this.positionX >= (this.tableauPosition[1] -25) && this.positionX <= (this.tableauPosition[1]+5) 
-    && this.positionY >= (this.tableauPosition[2] -30) && this.positionY <= (this.tableauPosition[2] )){
-    this.robot.afficherQuestion(0);
+    } else if (
+      this.positionX >= this.tableauPosition[7] - 25 &&
+      this.positionX <= this.tableauPosition[7] + 5 &&
+      this.positionY >= this.tableauPosition[8] - 30 &&
+      this.positionY <= this.tableauPosition[8]
+    ) {
+      this.robot.afficherQuestion(2);
+
+    } else if (
+      this.positionX >= this.tableauPosition[10] - 25 &&
+      this.positionX <= this.tableauPosition[10] + 5 &&
+      this.positionY >= this.tableauPosition[11] - 30 &&
+      this.positionY <= this.tableauPosition[11]
+    ) {
+      this.robot.afficherQuestion(3);
+    
+
+    } else if (
+      this.positionX >= this.tableauPosition[13] - 25 &&
+      this.positionX <= this.tableauPosition[13] + 5 &&
+      this.positionY >= this.tableauPosition[14] - 30 &&
+      this.positionY <= this.tableauPosition[14]
+    ) {
+      this.robot.afficherQuestion(4);
+      
     }
   }
 
