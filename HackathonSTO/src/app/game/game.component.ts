@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
@@ -25,8 +26,6 @@ export class GameComponent implements OnInit {
       element.style.top = this.getRandomNumber(0, 500) + 'px';
       element.style.display = 'block';
       document.body.appendChild(element);
-      console.log(element.getBoundingClientRect().x);
-      console.log(element.getBoundingClientRect().y);
     }
   }
   getRandomNumber(min: number, max: number): number {
