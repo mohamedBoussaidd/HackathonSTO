@@ -78,7 +78,7 @@ export class GameComponent implements OnInit {
       this.positionY = this.positionY - augmenter;
       this.imgRobot.style.top = this.positionY + 'px';
     }
-let bool :boolean =false
+
     if (
       this.positionX >= this.tableauPosition[1] - 25 &&
       this.positionX <= this.tableauPosition[1] + 5 &&
@@ -94,8 +94,6 @@ let bool :boolean =false
       this.positionY <= this.tableauPosition[5]
     ) {
       this.robot.afficherQuestion(1);
-      this.ChangeDirectory.style.backgroundColor ='red';
-      console.log(this.ChangeDirectory)
     
     } else if (
       this.positionX >= this.tableauPosition[7] - 25 &&
