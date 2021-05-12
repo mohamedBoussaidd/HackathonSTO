@@ -12,3 +12,14 @@
     position: absolute;
    display: none;
 }
+.gameBG {
+  background-image: url("/assets/img/marsi.jpeg");
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+#img-robot {
+  position: absolute;
+}
