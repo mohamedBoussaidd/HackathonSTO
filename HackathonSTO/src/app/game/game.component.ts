@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 
+import { RobotService } from '../commons/robot.service';
 
 @Component({
   selector: 'app-game',
@@ -8,12 +9,12 @@ import { Component, HostListener, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
   public imgRobot: any;
   public positionX: any;
   public positionY: any;
   public divImg: any;
   public key: any;
+  constructor(public robot: RobotService) { }
 
   ngOnInit(): void {
     this.divImg = document.getElementById('div-img');
@@ -64,4 +65,18 @@ export class GameComponent implements OnInit {
     }
   }
 
+  afficherQuestion(number:number){
+    this.robot.afficherQuestion(number);
+  }
+
+
+  afficherScoreFinal(){  
+    this.robot.afficherScoreFinal();
+  }
+
+  afficherScorePerd(){
+    this.robot.afficherScorePerd();
+  }
+
+ 
 }
