@@ -1,4 +1,5 @@
 import { forwardRef, Injectable, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Robot } from '../model/robot.model';
 import { ContentCkeckpointmeet } from './ContentCheckpointmeet.service';
@@ -10,7 +11,8 @@ export class RobotService implements OnInit{
   public robot: Robot = new Robot(3, 0);
   public questionResponse : any = [];
   public question : any = [];
-  constructor(public contentCheckpoint: ContentCkeckpointmeet) {}
+  constructor(public contentCheckpoint: ContentCkeckpointmeet) {
+  }
   ngOnInit(): void {
     this.questionResponse = this.contentCheckpoint.questionReponses
   }
@@ -25,8 +27,8 @@ export class RobotService implements OnInit{
         ' points et ' +
         this.robot.jourDeSurvie +
         ' jours de vie',
-      confirmButtonText: 'Ok',
-    });
+      confirmButtonText:"Retourner à l'accueil",
+    })
   }
 
   async afficherQuestion(number:number) {

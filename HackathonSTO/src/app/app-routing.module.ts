@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'game', component: GameComponent},
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
